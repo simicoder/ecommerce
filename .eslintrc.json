@@ -1,0 +1,57 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "jest-dom", "testing-library"],
+  "rules": {
+    "no-use-before-define": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "react/jsx-filename-extension": "off",
+    "comma-dangle": "off",
+    "object-curly-newline": "off",
+    "import/prefer-default-export": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "react/prop-types": "off",
+    "indent": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "no-confusing-arrow": "off",
+    "no-unused-expressions": "off",
+    "react/jsx-boolean-value": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "implicit-arrow-linebreak": "off",
+    "operator-linebreak": "off",
+    "react/button-has-type": "off",
+    "function-paren-newline": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "react/jsx-curly-newline": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "eqeqeq": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/self-closing-comp": "off",
+    "@typescript-eslint/ban-types": "off",
+    "jsx-a11y/href-no-hash": "off",
+    "arrow-parens": "off",
+    "react/no-array-index-key": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/require-default-props": "off"
+  }
+}

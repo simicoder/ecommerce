@@ -1,0 +1,47 @@
+{
+  "name": "ecommerce",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest --watchAll",
+    "cy:open-only": "cypress open",
+    "cy:run-only": "cypress run",
+    "cy:open": "start-server-and-test dev 3000 cy:open-only",
+    "cy:run": "start-server-and-test dev 3000 cy:run-only"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "datocms-client": "^3.4.9",
+    "firebase": "^8.6.0",
+    "next": "10.2.0",
+    "next-seo": "^4.24.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.5.2",
+    "react-select": "^4.3.1",
+    "react-stripe-checkout": "^2.6.3",
+    "sass": "^1.38.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/faker": "^5.5.7",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^15.0.2",
+    "@types/react": "^17.0.5",
+    "@types/react-select": "^4.0.15",
+    "babel-jest": "^27.0.6",
+    "cypress": "^8.1.0",
+    "eslint": "^7.32.0",
+    "faker": "^5.5.3",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "start-server-and-test": "^1.13.1",
+    "typescript": "^4.2.4"
+  }
+}
