@@ -58,7 +58,7 @@ export const LoginForm = () => {
       await auth.signInWithEmailAndPassword(email, password);
       router.push('/');
     } catch (e) {
-      setModal({ isOpen: true, type: 'error', message: e?.message });
+      setModal({ isOpen: true, type: 'error', message: (e as Error)?.message });
     } finally {
       setLoading(false);
     }

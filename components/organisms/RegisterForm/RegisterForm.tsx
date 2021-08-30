@@ -58,7 +58,7 @@ export const RegisterForm = () => {
       });
       reset();
     } catch (e) {
-      setModal({ isOpen: true, type: 'error', message: e?.message });
+      setModal({ isOpen: true, type: 'error', message: (e as Error)?.message });
     } finally {
       setLoading(false);
     }
