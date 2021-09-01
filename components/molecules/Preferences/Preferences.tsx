@@ -1,14 +1,11 @@
 import { useProduct } from 'context/ProductContext';
 import Slider from '@material-ui/core/Slider';
-
 import Input from '@material-ui/core/Input';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -16,7 +13,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     item: {
-      minWidth: 200,
+      width: '80%',
       margin: theme.spacing(2),
     },
   }),
@@ -77,7 +74,7 @@ export const Preferences = () => {
           </Select>
         </FormControl>
       </Grid>
-      <Grid xs={6} md={3} item justifyContent="center" container>
+      <Grid xs={10} md={3} item justifyContent="center" container>
         <Typography gutterBottom>Max Price: ${price}</Typography>
 
         <Slider
