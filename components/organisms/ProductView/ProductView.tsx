@@ -80,7 +80,6 @@ export const ProductView = memo<ProductDescriptionProps>(({ product }) => {
                 </Typography>
                 <Typography variant="body1" color="textSecondary">
                   {product.description}
-                  {product.category}
                 </Typography>
               </Grid>
 
