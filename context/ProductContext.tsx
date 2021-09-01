@@ -21,7 +21,7 @@ type ProductContext = {
   setActiveProductSize: Dispatch<SetStateAction<typeof ProductSizes[number]['label']>>;
   handleChangeSearchQuery: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChangePrice: (e: React.ChangeEvent<{}>, newValue: number | number[]) => void;
-  handleSelectcategorys: (options: any) => void;
+  handleSelectcategorys: (types: { target: { value: string } }) => void;
 };
 
 const ProductContext = createContext<ProductContext>({

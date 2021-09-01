@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const data = await DatoCMSData.items.all();
     const images = await DatoCMSData.uploads.all();
 
-    data.forEach((product: any, i: any) => {
+    data.forEach((product: ProductType, i: number) => {
       product.imgurl = images[i].url;
     });
 
