@@ -1,3 +1,4 @@
+import React from 'react';
 import { createContext, useState, Dispatch, SetStateAction, useContext, useEffect } from 'react';
 import { ProductSizes } from 'lib/utils/consts';
 import type { ProductType } from 'types';
@@ -21,7 +22,11 @@ type ProductContext = {
   setActiveProductSize: Dispatch<SetStateAction<typeof ProductSizes[number]['label']>>;
   handleChangeSearchQuery: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChangePrice: (e: React.ChangeEvent<{}>, newValue: number | number[]) => void;
-  handleSelectcategorys: (types: { target: { value: string } }) => void;
+  handleSelectcategorys: (
+    types: React.ChangeEvent<{
+      value: unknown;
+    }>,
+  ) => void;
 };
 
 const ProductContext = createContext<ProductContext>({
@@ -68,8 +73,12 @@ export const ProductProvider = ({ children }: { children: React.ReactNode }) => 
   const [activeProductSize, setActiveProductSize] =
     useState<typeof ProductSizes[number]['label']>('S');
 
-  const handleSelectcategorys = (types: { target: { value: string } }) => {
-    setSelectedcategorys(types.target.value);
+  const handleSelectcategorys = (
+    types: React.ChangeEvent<{
+      value: unknown;
+    }>,
+  ) => {
+    setSelectedcategorys(types.target.value as string);
   };
 
   useEffect(() => {
