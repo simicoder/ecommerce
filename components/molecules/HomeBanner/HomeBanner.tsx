@@ -25,6 +25,7 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
     maxWidth: '40rem',
     color: 'white',
+    margin: '3rem',
 
     '&::before': {
       position: 'absolute',
