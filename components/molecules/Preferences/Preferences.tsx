@@ -45,6 +45,7 @@ export const Preferences = () => {
     handleChangeSearchQuery,
     handleSelectcategorys,
     productsTypes,
+    selectedcategorys,
   } = useProduct();
 
   const classes = useStyles();
@@ -65,7 +66,7 @@ export const Preferences = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={productsTypes[0]}
+            value={selectedcategorys}
             onChange={handleSelectcategorys}
           >
             {productsTypes.map((type) => (
