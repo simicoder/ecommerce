@@ -61,11 +61,11 @@ export const Preferences = () => {
       </Grid>
       <Grid xs={12} md={3} item justifyContent="center" container>
         <FormControl className={classes.item}>
-          <InputLabel id="demo-simple-select-label">type</InputLabel>
+          <InputLabel id="demo-simple-select-label">Type</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={productsTypes}
+            value={productsTypes[0]}
             onChange={handleSelectcategorys}
           >
             {productsTypes.map((type) => (
