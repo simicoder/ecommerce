@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import type { ProductType } from 'types';
 import { useCart } from 'context/CartContext';
 import StripeCheckout, { Token } from 'react-stripe-checkout';
-import { CheckoutProduct } from 'components/atoms/Product/CheckoutProduct/CheckoutProduct';
+import { CheckoutProduct } from 'components/atoms/CheckoutProduct/CheckoutProduct';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';

@@ -3,7 +3,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 import { useCart } from 'context/CartContext';
 
-import { CartProduct } from 'components/atoms/Product/CartProduct/CartProduct';
+import { CartProduct } from 'components/atoms/CartProduct/CartProduct';
 
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';

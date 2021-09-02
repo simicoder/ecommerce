@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -44,21 +45,17 @@ export const RegisterForm = () => {
   } = useForm();
 
   const classes = useStyles();
-
-  const { setLoading, setModal } = useMainContext();
+  const { enqueueSnackbar } = useSnackbar();
+  const { setLoading } = useMainContext();
 
   const handleRegister = async ({ email, password }: UserData) => {
     setLoading(true);
     try {
       await auth.createUserWithEmailAndPassword(email, password);
-      setModal({
-        isOpen: true,
-        type: 'success',
-        message: 'Account was created. Log in!',
-      });
+      enqueueSnackbar('Account was created. Log in!');
       reset();
     } catch (e) {
-      setModal({ isOpen: true, type: 'error', message: (e as Error)?.message });
+      enqueueSnackbar((e as Error)?.message);
     } finally {
       setLoading(false);
     }

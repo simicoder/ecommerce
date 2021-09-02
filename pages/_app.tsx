@@ -11,6 +11,8 @@ import { CartProvider } from 'context/CartContext';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+import { SnackbarProvider } from 'notistack';
+
 const meta = {
   title: 'Ecommerce',
   description: 'ecommerce app.',
@@ -71,7 +73,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={theme}>
           <ProductProvider>
             <CartProvider>
-              <Component {...pageProps} />
+              <SnackbarProvider maxSnack={3}>
+                <Component {...pageProps} />
+              </SnackbarProvider>
             </CartProvider>
           </ProductProvider>
         </ThemeProvider>

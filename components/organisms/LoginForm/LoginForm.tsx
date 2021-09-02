@@ -16,6 +16,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -44,13 +45,14 @@ export const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
+  const router = useRouter();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const { setLoading } = useMainContext();
+
   useEffect(() => {
     auth.signOut();
   }, []);
-
-  const router = useRouter();
-
-  const { setLoading, setModal } = useMainContext();
 
   const handleLogin = async ({ email, password }: UserData) => {
     setLoading(true);
@@ -58,7 +60,7 @@ export const LoginForm = () => {
       await auth.signInWithEmailAndPassword(email, password);
       router.push('/');
     } catch (e) {
-      setModal({ isOpen: true, type: 'error', message: (e as Error)?.message });
+      enqueueSnackbar((e as Error)?.message);
     } finally {
       setLoading(false);
     }

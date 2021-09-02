@@ -1,4 +1,4 @@
-import { ProductTile } from 'components/atoms/Product/ProductTile/ProductTile';
+import { ProductTile } from 'components/atoms/ProductTile/ProductTile';
 import type { ProductType } from 'types';
 import { memo } from 'react';
 import Grid from '@material-ui/core/Grid';

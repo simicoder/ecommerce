@@ -3,7 +3,6 @@ import type { ProductType } from 'types';
 import { SizeSelect } from 'components/molecules/SizeSelect/SizeSelect';
 import { useProduct } from 'context/ProductContext';
 import { useCart } from 'context/CartContext';
-import { useMainContext } from 'context/MainContext';
 import Button from '@material-ui/core/Button';
 import { ProductSizes } from 'lib/utils/consts';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
@@ -11,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Image from 'next/image';
+import { useSnackbar } from 'notistack';
 
 type ProductDescriptionProps = { readonly product: ProductType };
 
@@ -37,21 +37,17 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const ProductView = memo<ProductDescriptionProps>(({ product }) => {
   const { setActiveProductSize } = useProduct();
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setActiveProductSize(e.target.value as typeof ProductSizes[number]['label']);
   };
 
   const { handleAddToCart } = useCart();
-  const { setModal } = useMainContext();
 
   const handleAddProductToCart = () => {
     handleAddToCart(product);
-    setModal({
-      isOpen: true,
-      type: 'success',
-      message: 'Successfully added to cart!',
-    });
+    enqueueSnackbar('Successfully added to cart!');
   };
 
   const classes = useStyles();
