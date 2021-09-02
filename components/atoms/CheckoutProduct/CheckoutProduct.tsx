@@ -22,7 +22,7 @@ export const CheckoutProduct = memo<CheckoutProductProps>(
     return (
       <Grid
         container
-        spacing={1}
+        spacing={2}
         direction="row"
         alignItems="center"
         justifyContent="center"
@@ -32,7 +32,7 @@ export const CheckoutProduct = memo<CheckoutProductProps>(
           <Image src={product.imgurl} alt={product.name} width="100%" height="100%" />
         </Grid>
         <Grid xs={4} container item direction="column" alignItems="center" justifyContent="center">
-          <Link color="initial" href={`/products/${product.id}`}>
+          <Link color="initial" underline="none" href={`/products/${product.id}`}>
             {product.name}
           </Link>
         </Grid>
