@@ -43,9 +43,9 @@ export const Preferences = () => {
     handleChangePrice,
     searchQuery,
     handleChangeSearchQuery,
-    handleSelectcategorys,
-    productsTypes,
-    selectedcategorys,
+    handleSelectCategories,
+    productsCategories,
+    selectedCategory,
   } = useProduct();
 
   const classes = useStyles();
@@ -66,11 +66,11 @@ export const Preferences = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={selectedcategorys}
-            onChange={handleSelectcategorys}
+            value={selectedCategory}
+            onChange={handleSelectCategories}
           >
-            {productsTypes.map((type) => (
-              <MenuItem value={type}>{type}</MenuItem>
+            {productsCategories.map((category) => (
+              <MenuItem value={category}>{category}</MenuItem>
             ))}
           </Select>
         </FormControl>

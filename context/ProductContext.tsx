@@ -16,17 +16,18 @@ type ProductContext = {
   setFilteredProducts: Dispatch<SetStateAction<ProductType[]>>;
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
-  productsTypes: string[];
-  setProductsTypes: Dispatch<SetStateAction<string[]>>;
+  productsCategories: string[];
+  setProductsCategories: Dispatch<SetStateAction<string[]>>;
   activeProductSize: typeof ProductSizes[number]['label'];
   setActiveProductSize: Dispatch<SetStateAction<typeof ProductSizes[number]['label']>>;
   handleChangeSearchQuery: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleChangePrice: (e: React.ChangeEvent<{}>, newValue: number | number[]) => void;
-  handleSelectcategorys: (
+  handleSelectCategories: (
     types: React.ChangeEvent<{
       value: unknown;
     }>,
   ) => void;
+  selectedCategory: string;
 };
 
 const ProductContext = createContext<ProductContext>({
@@ -42,13 +43,14 @@ const ProductContext = createContext<ProductContext>({
   setFilteredProducts: () => {},
   searchQuery: '',
   setSearchQuery: () => {},
-  productsTypes: [],
-  setProductsTypes: () => {},
+  productsCategories: [],
+  setProductsCategories: () => {},
   activeProductSize: 'S',
   setActiveProductSize: () => {},
   handleChangeSearchQuery: () => {},
   handleChangePrice: () => {},
-  handleSelectcategorys: () => {},
+  handleSelectCategories: () => {},
+  selectedCategory: '',
 });
 
 export const useProduct = () => {
@@ -66,24 +68,24 @@ export const ProductProvider = ({ children }: { children: React.ReactNode }) => 
   const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(2000);
-  const [productsTypes, setProductsTypes] = useState<string[]>([]);
-  const [selectedcategorys, setSelectedcategorys] = useState<string>('');
+  const [productsCategories, setProductsCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState('');
   const [price, setPrice] = useState(350);
   const [activeProductSize, setActiveProductSize] =
     useState<typeof ProductSizes[number]['label']>('S');
 
-  const handleSelectcategorys = (
+  const handleSelectCategories = (
     types: React.ChangeEvent<{
       value: unknown;
     }>,
   ) => {
-    setSelectedcategorys(types.target.value as string);
+    setSelectedCategory(types.target.value as string);
   };
 
   useEffect(() => {
     handleFilterProducts();
-  }, [price, searchQuery, selectedcategorys]);
+  }, [price, searchQuery, selectedCategory]);
 
   const handleFilterProducts = () => {
     setFilteredProducts(
@@ -91,11 +93,11 @@ export const ProductProvider = ({ children }: { children: React.ReactNode }) => 
         .filter((product) => product.name.toLowerCase().startsWith(searchQuery.toLowerCase()))
         .filter((product) => product.price <= price)
         .filter((product) => {
-          if (!selectedcategorys.length) {
+          if (!selectedCategory.length) {
             return true;
           }
 
-          if (selectedcategorys.includes(product.category)) {
+          if (selectedCategory.includes(product.category)) {
             return true;
           }
 
@@ -116,7 +118,7 @@ export const ProductProvider = ({ children }: { children: React.ReactNode }) => 
     setMinPrice(Math.min(...products.map((product) => product.price)));
     setMaxPrice(Math.max(...products.map((product) => product.price)));
     setPrice(Math.max(...products.map((product) => product.price)));
-    setProductsTypes([...new Set(products.map((product) => product.category))]);
+    setProductsCategories([...new Set(products.map((product) => product.category))]);
   }, [products]);
 
   return (
@@ -134,13 +136,14 @@ export const ProductProvider = ({ children }: { children: React.ReactNode }) => 
         setFilteredProducts,
         searchQuery,
         setSearchQuery,
-        productsTypes,
-        setProductsTypes,
+        productsCategories,
+        setProductsCategories,
         activeProductSize,
         setActiveProductSize,
         handleChangeSearchQuery,
         handleChangePrice,
-        handleSelectcategorys,
+        handleSelectCategories,
+        selectedCategory,
       }}
     >
       {children}
