@@ -14,6 +14,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(4),
     position: 'relative',
+    transition: 'all 0.2s ease-in-out',
+
+    '&:hover': {
+      transform: 'scale(0.95)',
+    },
   },
   flashCard: {
     position: 'absolute',
