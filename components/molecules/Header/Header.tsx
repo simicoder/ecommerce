@@ -53,7 +53,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   fullList: {
     width: 'auto',
-    backgroundColor: 'red',
+  },
+  homeButton: {
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.primary,
+    padding: theme.spacing(2),
   },
 }));
 
@@ -88,6 +92,7 @@ export const Header = () => {
         <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
           <Link href="/" replace>
             <StyledBreadcrumb
+              className={classes.homeButton}
               component="button"
               label="Home"
               icon={<HomeIcon fontSize="large" />}

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     bottom: '12%',
     right: 0,
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.background.default,
     padding: '1rem 1.5rem',
     fontSize: '1.6rem',
   },

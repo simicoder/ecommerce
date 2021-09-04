@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import type { ProductType } from 'types';
 import Image from 'next/image';
-import Link from '@material-ui/core/Link';
+import Link from '../Link/Link';
 import Input from '@material-ui/core/Input';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -32,7 +32,7 @@ export const CheckoutProduct = memo<CheckoutProductProps>(
           <Image src={product.imgurl} alt={product.name} width="100%" height="100%" />
         </Grid>
         <Grid xs={4} container item direction="column" alignItems="center" justifyContent="center">
-          <Link color="initial" underline="none" href={`/products/${product.id}`}>
+          <Link color="textPrimary" underline="none" href={`/products/${product.id}`}>
             {product.name}
           </Link>
         </Grid>

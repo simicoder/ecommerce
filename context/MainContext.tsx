@@ -3,11 +3,15 @@ import { createContext, useState, Dispatch, SetStateAction, useContext } from 'r
 const MainContext = createContext<ContextType>({
   loading: false,
   setLoading: () => {},
+  isDarkTheme: false,
+  setIsDarkTheme: () => {},
 });
 
 type ContextType = {
   loading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
+  isDarkTheme: boolean;
+  setIsDarkTheme: Dispatch<SetStateAction<boolean>>;
 };
 
 export const useMainContext = () => {
@@ -21,6 +25,11 @@ export const useMainContext = () => {
 
 export const MainProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
-  return <MainContext.Provider value={{ loading, setLoading }}>{children}</MainContext.Provider>;
+  return (
+    <MainContext.Provider value={{ loading, setLoading, isDarkTheme, setIsDarkTheme }}>
+      {children}
+    </MainContext.Provider>
+  );
 };
