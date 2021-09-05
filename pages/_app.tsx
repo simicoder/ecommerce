@@ -8,9 +8,6 @@ import { MainProvider } from 'context/MainContext';
 import { ProductProvider } from 'context/ProductContext';
 import { CartProvider } from 'context/CartContext';
 
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-
 import { SnackbarProvider } from 'notistack';
 
 const meta = {
@@ -22,19 +19,6 @@ export const titleTemplate = `%s | ${meta.title}`;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter();
-
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          // type: prefersDarkMode ? 'dark' : 'light',
-          type: 'light',
-        },
-      }),
-    [prefersDarkMode],
-  );
 
   return (
     <>
@@ -70,15 +54,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <MainProvider>
-        <ThemeProvider theme={theme}>
-          <ProductProvider>
-            <CartProvider>
-              <SnackbarProvider maxSnack={3}>
-                <Component {...pageProps} />
-              </SnackbarProvider>
-            </CartProvider>
-          </ProductProvider>
-        </ThemeProvider>
+        <ProductProvider>
+          <CartProvider>
+            <SnackbarProvider maxSnack={3}>
+              <Component {...pageProps} />
+            </SnackbarProvider>
+          </CartProvider>
+        </ProductProvider>
       </MainProvider>
     </>
   );

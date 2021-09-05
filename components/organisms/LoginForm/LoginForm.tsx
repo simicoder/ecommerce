@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { inputValidation } from 'lib/utils/consts';
 import { UserData } from 'types';
-import Link from 'next/link';
+import Link from '@material-ui/core/Link';
 import { auth } from 'lib/firebase';
 import { useMainContext } from 'context/MainContext';
 import { useEffect } from 'react';
@@ -17,6 +17,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { useSnackbar } from 'notistack';
+import { ThemeSwitch } from '../../atoms/ThemeSwitch/ThemeSwitch';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -36,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  link: { color: theme.palette.info.main },
 }));
 
 export const LoginForm = () => {
@@ -72,6 +74,7 @@ export const LoginForm = () => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
+        <ThemeSwitch />
         <Avatar className={classes.avatar}>
           <VpnKeyIcon />
         </Avatar>
@@ -114,7 +117,9 @@ export const LoginForm = () => {
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="/register">{"Don't have an account? Sign Up"}</Link>
+              <Link className={classes.link} href="/register">
+                {"Don't have an account? Sign Up"}
+              </Link>
             </Grid>
           </Grid>
         </form>
