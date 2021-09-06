@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { useSnackbar } from 'notistack';
+import { ThemeSwitch } from '../../atoms/ThemeSwitch/ThemeSwitch';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -65,6 +66,8 @@ export const RegisterForm = () => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
+        <ThemeSwitch />
+
         <Avatar className={classes.avatar}>
           <VpnKeyIcon />
         </Avatar>
