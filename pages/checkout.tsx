@@ -1,4 +1,4 @@
-import { Layout } from 'components/organisms/Layout';
+import { Layout } from 'components/organisms/Layout/Layout';
 import { CheckoutList } from 'components/molecules/CheckoutList/CheckoutList';
 import { AuthChecker } from 'components/organisms/AuthChecker/AuthChecker';
 import { useCart } from 'context/CartContext';

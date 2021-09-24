@@ -1,5 +1,5 @@
 import type { ProductSType, ProductType } from 'types';
-import { Layout } from 'components/organisms/Layout';
+import { Layout } from 'components/organisms/Layout/Layout';
 import { ProductView } from 'components/organisms/ProductView/ProductView';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { DatoCMSData } from 'lib/datocms';
@@ -24,6 +24,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const product: ProductSType = await DatoCMSData.items.find(context.params!.id);
     const imgurl = await DatoCMSData.uploads.find(product.imgurl.en.uploadId);
     product.imgurl = imgurl.url;
+    console.log(product.imgurl);
 
     if (!product) {
       return {

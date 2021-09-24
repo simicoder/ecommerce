@@ -1,5 +1,5 @@
 import { RegisterForm } from 'components/organisms/RegisterForm/RegisterForm';
-import { Layout } from 'components/organisms/Layout';
+import { Layout } from 'components/organisms/Layout/Layout';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({

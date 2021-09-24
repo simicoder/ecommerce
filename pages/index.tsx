@@ -1,4 +1,4 @@
-import { Layout } from 'components/organisms/Layout';
+import { Layout } from 'components/organisms/Layout/Layout';
 import { AuthChecker } from 'components/organisms/AuthChecker/AuthChecker';
 import { Main } from 'components/organisms/Main/Main';
 import { DatoCMSData } from 'lib/datocms';

@@ -94,6 +94,7 @@ export const ProductView = memo<ProductDescriptionProps>(({ product }) => {
                 color="primary"
                 onClick={handleAddProductToCart}
                 className={classes.buy}
+                data-testid="add-to-cart-btn"
               >
                 Add to cart
               </Button>

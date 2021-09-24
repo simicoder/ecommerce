@@ -22,6 +22,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style-type: none !important;
+}
+
 /*
   Improved screen reader only CSS class
   @author Gaël Poupard

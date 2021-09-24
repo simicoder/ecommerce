@@ -1,5 +1,5 @@
 import { LoginForm } from 'components/organisms/LoginForm/LoginForm';
-import { Layout } from 'components/organisms/Layout';
+import { Layout } from 'components/organisms/Layout/Layout';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
