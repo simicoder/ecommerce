@@ -31,14 +31,13 @@ export const SizeSelect = memo<SizeSelectProps>(({ onChange }) => {
       >
         {ProductSizes.map((size) => {
           return (
-            <div>
-              <FormControlLabel
-                value={size.label}
-                checked={activeProductSize === size.label}
-                control={<Radio />}
-                label={size.label}
-              />
-            </div>
+            <FormControlLabel
+              key={size.label}
+              value={size.label}
+              checked={activeProductSize === size.label}
+              control={<Radio />}
+              label={size.label}
+            />
           );
         })}
       </RadioGroup>

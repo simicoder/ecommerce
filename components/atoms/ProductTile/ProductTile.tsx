@@ -36,17 +36,19 @@ export const ProductTile = memo<ProductProps>(({ product }) => {
   return (
     <Link href={`/products/${product.id}`} passHref>
       <Grid className={classes.root} item xs={12} sm={6} md={3} data-testid="product-tile">
-        <Image
-          src={product.imgurl}
-          width="100%"
-          height="100%"
-          layout="responsive"
-          alt={product.name}
-        />
-        <Grid item className={classes.flashCard}>
-          <Typography variant="h5">{product.name}</Typography>
-          <Typography>${product.price}</Typography>
-        </Grid>
+        <a>
+          <Image
+            src={product.imgurl}
+            width="100%"
+            height="100%"
+            layout="responsive"
+            alt={product.name}
+          />
+          <Grid item className={classes.flashCard}>
+            <Typography variant="h5">{product.name}</Typography>
+            <Typography>${product.price}</Typography>
+          </Grid>
+        </a>
       </Grid>
     </Link>
   );

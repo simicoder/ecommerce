@@ -4,7 +4,6 @@ import { useCart } from 'context/CartContext';
 import StripeCheckout, { Token } from 'react-stripe-checkout';
 import { CheckoutProduct } from 'components/atoms/CheckoutProduct/CheckoutProduct';
 import { makeStyles } from '@material-ui/core/styles';
-
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -30,22 +29,24 @@ export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
   const onToken = (token: Token) => console.log(token);
 
   return (
-    <Grid container justifyContent="center" id="checkout-list">
+    <Grid container justifyContent="center" data-testid="checkout-list">
       {cartItems.length ? (
-        <Grid className={classes.list} item xs={8} justifyContent="center">
-          {cartItems.map((cartItem) => {
-            return (
-              <CheckoutProduct
-                product={cartItem}
-                onRemoveItem={handleRemoveFromCart}
-                onChangeItemQuantity={handleChangeProductQuantity}
-                key={cartItem.id}
-              />
-            );
-          })}
+        <Grid container className={classes.list} item xs={8} justifyContent="center">
+          <ul>
+            {cartItems.map((cartItem) => {
+              return (
+                <CheckoutProduct
+                  product={cartItem}
+                  onRemoveItem={handleRemoveFromCart}
+                  onChangeItemQuantity={handleChangeProductQuantity}
+                  key={cartItem.id}
+                />
+              );
+            })}
+          </ul>
         </Grid>
       ) : (
-        <Grid className={classes.list} item justifyContent="center">
+        <Grid container className={classes.list} item justifyContent="center">
           Cart is empty
         </Grid>
       )}
@@ -69,7 +70,7 @@ export const CheckoutList = memo<CheckoutListProps>(({ cartItems }) => {
             variant="contained"
             color="primary"
             disabled={getTotalCost() <= 0}
-            id="pay-now-btn"
+            data-testid="pay-now-btn"
             className={classes.button}
           >
             pay now

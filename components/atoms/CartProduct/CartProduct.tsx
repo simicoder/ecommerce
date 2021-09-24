@@ -21,19 +21,21 @@ export const CartProduct = memo<CartProductProps>(({ product, onRemoveItem }) =>
   const classes = useStyles();
 
   return (
-    <Grid className={classes.root} container data-testid="cart-product">
-      <Grid item>
-        <Typography variant="h6">{product.name}</Typography>
-        <Typography>
-          {product.quantity} x ${product.price}
-        </Typography>
+    <li>
+      <Grid className={classes.root} container data-testid="cart-product">
+        <Grid item>
+          <Typography variant="h6">{product.name}</Typography>
+          <Typography>
+            {product.quantity} x ${product.price}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Button onClick={() => onRemoveItem(product)}>
+            <CloseIcon />
+          </Button>
+        </Grid>
       </Grid>
-      <Grid item>
-        <Button onClick={() => onRemoveItem(product)}>
-          <CloseIcon />
-        </Button>
-      </Grid>
-    </Grid>
+    </li>
   );
 });
 

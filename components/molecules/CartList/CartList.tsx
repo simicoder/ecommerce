@@ -27,19 +27,21 @@ export const CartList = memo<CartListProps>(({ cartItems }) => {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.root} container id="cart-list">
+    <Grid className={classes.root} container data-testid="cart-list">
       <Grid item>
         {cartItems.length ? (
           <>
-            {cartItems.map((cartItem) => {
-              return (
-                <CartProduct
-                  onRemoveItem={handleRemoveFromCart}
-                  product={cartItem}
-                  key={cartItem.id}
-                />
-              );
-            })}
+            <ul>
+              {cartItems.map((cartItem) => {
+                return (
+                  <CartProduct
+                    onRemoveItem={handleRemoveFromCart}
+                    product={cartItem}
+                    key={cartItem.id}
+                  />
+                );
+              })}
+            </ul>
             <Link href="/checkout">
               <Button type="submit" fullWidth variant="contained" color="primary">
                 Checkout

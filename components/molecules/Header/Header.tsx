@@ -121,7 +121,11 @@ export const Header = () => {
             />
           </Link>
         </Typography>
-        <Button className={classes.icon} onClick={() => setIsCartOpen((open) => !open)}>
+        <Button
+          data-testid="cart-btn"
+          className={classes.icon}
+          onClick={() => setIsCartOpen((open) => !open)}
+        >
           <ShoppingCartIcon fontSize="large" />
           {getTotalQuantity() > 99 ? '99' : getTotalQuantity()}
         </Button>

@@ -23,9 +23,11 @@ export const Main = memo<MainProps>(({ results }) => {
     <Grid>
       <Header />
       <Grid>
-        <HomeBanner />
-        <Preferences />
-        <ProductsList products={filteredProducts} />
+        <main>
+          <HomeBanner />
+          <Preferences />
+          <ProductsList products={filteredProducts} />
+        </main>
       </Grid>
     </Grid>
   );

@@ -100,6 +100,7 @@ export const RegisterForm = () => {
           />
           <FormHelperText error={true}>{errors?.password?.message}</FormHelperText>
           <Button
+            data-testid="submit"
             type="submit"
             fullWidth
             variant="contained"
